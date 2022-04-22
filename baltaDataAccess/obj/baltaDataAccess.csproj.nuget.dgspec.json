@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj": {}
+    "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj": {}
   },
   "projects": {
-    "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj": {
+    "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj",
+        "projectUniqueName": "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj",
         "projectName": "baltaDataAccess",
-        "projectPath": "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj",
+        "projectPath": "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj",
         "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
-        "outputPath": "C:\\AcessoAdadosComC-\\baltaDataAccess\\obj\\",
+        "outputPath": "C:\\AcessoAdadosComC-\\baltadataaccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
