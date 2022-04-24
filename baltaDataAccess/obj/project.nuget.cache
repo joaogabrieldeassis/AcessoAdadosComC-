@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "5YHaMn+D0/CcZ0hrfzWaP9bUKrSDMg3U0C3IQMji2l8VEIH3QPThMXuazYolUU09ptPX8J0Hl10V3QVNy/Aruw==",
+  "dgSpecHash": "x+pKSwcd0Aq1zWn0kUM4C4M4/hCltFnEcFZxfCUzpIYEfABM3dZERYak9D8wFC7z/6hhlL4lCxj8DSaOrWlypQ==",
   "success": true,
-  "projectFilePath": "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj",
+  "projectFilePath": "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Windows\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Windows\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
+    "C:\\Users\\Windows\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Windows\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.0.0\\microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
     "C:\\Users\\Windows\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Windows\\.nuget\\packages\\microsoft.data.sqlclient\\4.1.0\\microsoft.data.sqlclient.4.1.0.nupkg.sha512",

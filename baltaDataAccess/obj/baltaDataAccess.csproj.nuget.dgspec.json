@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj": {}
+    "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj": {}
   },
   "projects": {
-    "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj": {
+    "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj",
+        "projectUniqueName": "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj",
         "projectName": "baltaDataAccess",
-        "projectPath": "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj",
+        "projectPath": "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj",
         "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
-        "outputPath": "C:\\AcessoAdadosComC-\\baltadataaccess\\obj\\",
+        "outputPath": "C:\\AcessoAdadosComC-\\baltaDataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "microsoft.data.sqlclient": {
+            "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
             }
           },
           "imports": [

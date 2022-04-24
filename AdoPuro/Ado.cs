@@ -1,10 +1,11 @@
+/*
 using System;
 using Microsoft.Data.SqlClient;
 namespace AdoPuro // Note: actual namespace depends on the project name.
 {
     public class Ado
     {
-        static void Main(string[] args)
+        static void JoaoTeste(string[] args)
         {
             //Conectando nosso banco 
             const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password=1q2w3e4r@#$";
@@ -36,3 +37,4 @@ namespace AdoPuro // Note: actual namespace depends on the project name.
         }
     }
 }
+*/

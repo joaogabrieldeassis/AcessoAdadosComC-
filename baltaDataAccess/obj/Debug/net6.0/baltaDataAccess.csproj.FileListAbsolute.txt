@@ -45,3 +45,4 @@ C:\AcessoAdadosComC-\baltadataaccess\obj\Debug\net6.0\refint\baltaDataAccess.dll
 C:\AcessoAdadosComC-\baltadataaccess\obj\Debug\net6.0\baltaDataAccess.pdb
 C:\AcessoAdadosComC-\baltadataaccess\obj\Debug\net6.0\baltaDataAccess.genruntimeconfig.cache
 C:\AcessoAdadosComC-\baltadataaccess\obj\Debug\net6.0\ref\baltaDataAccess.dll
+C:\AcessoAdadosComC-\baltaDataAccess\bin\Debug\net6.0\Dapper.dll
