@@ -16,6 +16,7 @@ namespace BaltaDataAccess // Note: actual namespace depends on the project name.
                 foreach (var item in categorys)
                 {
                     Console.WriteLine($"{item.Id} - {item.Title}");
+                    Console.WriteLine("João");
                 }
             }
         }
