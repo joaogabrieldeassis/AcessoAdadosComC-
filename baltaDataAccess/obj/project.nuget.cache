@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x+pKSwcd0Aq1zWn0kUM4C4M4/hCltFnEcFZxfCUzpIYEfABM3dZERYak9D8wFC7z/6hhlL4lCxj8DSaOrWlypQ==",
+  "dgSpecHash": "9n7XcahuXjQKyJpMunkxTlCDN1zM/IdBvXW3Z52MIiKF2ztgfFbl8RzqTemOvWLtTqsdZVNO95qd0CKsM2KNMQ==",
   "success": true,
-  "projectFilePath": "C:\\AcessoAdadosComC-\\baltaDataAccess\\baltaDataAccess.csproj",
+  "projectFilePath": "C:\\AcessoAdadosComC-\\baltadataaccess\\baltaDataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Windows\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Windows\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
