@@ -9,10 +9,10 @@ namespace BaltaDataAccess // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password=1q2w3e4r@#$";
+            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;";
             using (var connection = new SqlConnection(connectionString))
             {
-                var categorys = connection.Query<Category>("SELECT [Id], [Title] FROM [Category");
+                var categorys = connection.Query<Category>("SELECT [Id], [Title] FROM [Category]");
                 foreach (var item in categorys)
                 {
                     Console.WriteLine($"{item.Id} - {item.Title}");

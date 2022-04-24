@@ -46,3 +46,9 @@ C:\AcessoAdadosComC-\baltadataaccess\obj\Debug\net6.0\baltaDataAccess.pdb
 C:\AcessoAdadosComC-\baltadataaccess\obj\Debug\net6.0\baltaDataAccess.genruntimeconfig.cache
 C:\AcessoAdadosComC-\baltadataaccess\obj\Debug\net6.0\ref\baltaDataAccess.dll
 C:\AcessoAdadosComC-\baltaDataAccess\bin\Debug\net6.0\Dapper.dll
+C:\AcessoAdadosComC-\baltadataaccess\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\AcessoAdadosComC-\baltadataaccess\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\AcessoAdadosComC-\baltadataaccess\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\AcessoAdadosComC-\baltadataaccess\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\AcessoAdadosComC-\baltadataaccess\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\AcessoAdadosComC-\baltadataaccess\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
