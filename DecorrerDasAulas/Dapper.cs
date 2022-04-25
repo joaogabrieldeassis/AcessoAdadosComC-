@@ -1,4 +1,5 @@
-﻿using System;
+/*
+using System;
 using BaltaDataAccess.Model;
 using BaltaDataAccses.Model;
 using Dapper;
@@ -79,3 +80,4 @@ namespace BaltaDataAccess // Note: actual namespace depends on the project name.
         }
     }
 }
+*/
