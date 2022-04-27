@@ -1,10 +1,9 @@
 ﻿using System;
-using BaltaDataAccess.Model;
-using BaltaDataAccses.Model;
+using Modulo3.Model;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
-namespace BaltaDataAccess // Note: actual namespace depends on the project name.
+namespace Modulo3 // Note: actual namespace depends on the project name.
 {
     public class Program
     {
@@ -20,7 +19,10 @@ namespace BaltaDataAccess // Note: actual namespace depends on the project name.
                 //ListCategorys(connection);
                 //CreateManyCategory(connection);
                 //ExecuteReadProcedure(connection);
-                ExecuteEscalar(connection);
+                //ExecuteEscalar(connection);
+                //ExecuteViws(connection);
+                //OneToOne(connection);
+                OneToMany(connection);
 
 
             }
@@ -176,7 +178,7 @@ namespace BaltaDataAccess // Note: actual namespace depends on the project name.
             @Order,
             @Summary,
             @Featured) SELECT SCOPE_IDENTITY()";
-            var IenteredAnId = connection.ExecuteEscalar<Guid>(insertSql, new
+            var IenteredAnId = connection.ExecuteScalar<Guid>(insert, new
             {
                 category.Title,
                 category.Url,
@@ -185,8 +187,90 @@ namespace BaltaDataAccess // Note: actual namespace depends on the project name.
                 category.Summary,
                 category.Featured
             }
-                );
+            );
             Console.WriteLine($"O id inserido foi : {IenteredAnId} ");
+        }
+        static void ExecuteViws(SqlConnection connection)
+        {
+            var sqlViws = "SELECT * FROM [VwCourse]";
+            var course = connection.Query(sqlViws);
+            foreach (var item in course)
+            {
+                Console.WriteLine($"{item.Id} - {item.Title}");
+            }
+        }
+        //Mapeando o INNER JOIN no banco com o relacionamento 1 para 1
+        static void OneToOne(SqlConnection connection)
+        {
+            var sql = @"SELECT * FROM [CareerItem] INNER JOIN [Course] ON [CareerItem].[CourseId] = [Course].[Id];";
+            var course = connection.Query<CareerItem, Course, CareerItem>
+            (
+                sql,
+                (careerItem, course) =>
+                {
+                    careerItem.Course = course;
+                    return careerItem;
+                },
+                splitOn: "Id"
+            //splitOn vai servir para dividirmos as nossas tabelas no iner join, para sabermos qual é a careerItem e qual é o corse
+            );
+            foreach (var item in course)
+            {
+                Console.WriteLine($"Career :{item.Title} - Course :{item.Id}");
+            }
+            // var studentd = @"SELECT * FROM [Student] INNER JOIN [Course] ON [Student].[CourseId] = [Course].[Id]";
+            // var studenSql = connection.Query<Student, Course, Student>
+            // (
+            //     studentd,
+            //     (student, course1) =>
+            //     {
+            //         student.Course = course1;
+            //         return student;
+            //     }
+            // );
+            // foreach (var item in studenSql)
+            // {
+            //     Console.WriteLine($"Aluno{item.Name} - {item.Name}");
+            // }
+        }
+        static void OneToMany(SqlConnection connection)
+        {
+            var sql = @"SELECT
+                [Career].[Id],
+                [Career].[Title],
+                [CareerItem].[CareerId],
+                [CareerItem].[Title]
+                FROM [Career] INNER JOIN [CareerItem] ON [CareerItem].[CareerId] = [Career].[Id] ORDER BY [Career].[Title]";
+            var listCareer = new List<Career>();
+            var Items = connection.Query<Career, CareerItem, Career>
+            (
+                sql,
+                (career, courseItem) =>
+                {
+                    var car = listCareer.Where(x => x.Id == career.Id).FirstOrDefault();
+                    if (car == null)
+                    {
+                        car = career;
+                        car.Items.Add(courseItem);
+                        listCareer.Add(car);
+                    }
+                    else
+                    {
+                        car.Items.Add(courseItem);
+                    }
+                    return career;
+                },
+                splitOn: "CareerId"
+            //splitOn vai servir para dividirmos as nossas tabelas no iner join, para sabermos qual é a careerItem e qual é o corse
+            );
+            foreach (var career in Items)
+            {
+                Console.WriteLine($"{career.Title}");
+                foreach (var item in career.Items)
+                {
+                    Console.WriteLine($"{item.Title}");
+                }
+            }
         }
     }
 }
