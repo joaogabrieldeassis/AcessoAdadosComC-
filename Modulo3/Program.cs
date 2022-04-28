@@ -22,7 +22,11 @@ namespace Modulo3 // Note: actual namespace depends on the project name.
                 //ExecuteEscalar(connection);
                 //ExecuteViws(connection);
                 //OneToOne(connection);
-                OneToMany(connection);
+                //OneToMany(connection);
+                //QueryMultiple(connection);
+                //SelectIn(connection);
+                //Like(connection);
+                Transaction(connection);
 
 
             }
@@ -241,29 +245,29 @@ namespace Modulo3 // Note: actual namespace depends on the project name.
                 [CareerItem].[CareerId],
                 [CareerItem].[Title]
                 FROM [Career] INNER JOIN [CareerItem] ON [CareerItem].[CareerId] = [Career].[Id] ORDER BY [Career].[Title]";
-            var listCareer = new List<Career>();
-            var Items = connection.Query<Career, CareerItem, Career>
+            var careers = new List<Career>();
+            var items = connection.Query<Career, CareerItem, Career>
             (
                 sql,
-                (career, courseItem) =>
+                (career, item) =>
                 {
-                    var car = listCareer.Where(x => x.Id == career.Id).FirstOrDefault();
+                    var car = careers.Where(x => x.Id == career.Id).FirstOrDefault();
                     if (car == null)
                     {
                         car = career;
-                        car.Items.Add(courseItem);
-                        listCareer.Add(car);
+                        car.Items.Add(item);
+                        careers.Add(car);
                     }
                     else
                     {
-                        car.Items.Add(courseItem);
+                        car.Items.Add(item);
                     }
                     return career;
                 },
                 splitOn: "CareerId"
             //splitOn vai servir para dividirmos as nossas tabelas no iner join, para sabermos qual é a careerItem e qual é o corse
             );
-            foreach (var career in Items)
+            foreach (var career in items)
             {
                 Console.WriteLine($"{career.Title}");
                 foreach (var item in career.Items)
@@ -272,5 +276,91 @@ namespace Modulo3 // Note: actual namespace depends on the project name.
                 }
             }
         }
+        // metodo abaixo é relacionamento muitos para muitos
+        static void QueryMultiple(SqlConnection connection)
+        {
+            var sqlMultiple = "SELECT * FROM [Category]; SELECT * FROM [Course]";
+            using (var catCourse = connection.QueryMultiple(sqlMultiple))
+            {
+                var category = catCourse.Read<Category>();
+                var courses = catCourse.Read<Course>();
+                foreach (var item in category)
+                {
+                    Console.WriteLine(item.Id);
+                }
+                foreach (var items in courses)
+                {
+                    Console.WriteLine(items.Title);
+                }
+            }
+        }
+        //metodo abaixo serve para buscar os id de cada carreira e exibir seus devidos nomes
+        static void SelectIn(SqlConnection connection)
+        {
+            var selIn = @"SELECT  * FROM [Career] WHERE [Id] IN ('01ae8a85-b4e8-4194-a0f1-1c6190af54cb','e6730d1c-6870-4df3-ae68-438624e04c72')";
+            var jhon = connection.Query<Career>(selIn);
+            foreach (var item in jhon)
+            {
+                Console.WriteLine(item.Title);
+            }
+        }
+        //Metodo para buscar titlos dos cursos
+        static void Like(SqlConnection connection)
+        {
+            var selectLike = "SELECT * FROM [Course] WHERE [Title] LIKE @exp ";
+            var toReceiveLike = connection.Query<Course>(selectLike, new
+            {
+                exp = "%api%"
+            }
+            );
+            foreach (var item in toReceiveLike)
+            {
+                Console.WriteLine(item.Title);
+            }
+        }
+        // trabalhando com transações no método abaixo
+        static void Transaction(SqlConnection connection)
+        {
+            var category = new Category();
+            category.Id = Guid.NewGuid();
+            category.Title = "Minha categoria que vou ser um ótimo programador";
+            category.Url = "https: kabum.com";
+            category.Description = "Venha comprar no melhor site do brasil";
+            category.Order = 8;
+            category.Summary = "João developer";
+            category.Featured = false;
+            var insert = @"INSERT INTO 
+            [Category] 
+            VALUES(
+            @Id,
+            @Title,
+            @Url,
+            @Description,
+            @Order,
+            @Summary,
+            @Featured)";
+            connection.Open();
+            using (var transaction = connection.BeginTransaction())
+            {
+                var rows = connection.Execute(insert, new
+                {
+                    category.Id,
+                    category.Title,
+                    category.Url,
+                    category.Summary,
+                    category.Order,
+                    category.Description,
+                    category.Featured
+                }, transaction
+                );
+                //transaction.Rollback();
+                //Comitando a nossa transação
+                transaction.Commit();
+                Console.WriteLine($"{rows} linhas inseridas");
+            }
+
+
+        }
     }
 }
+
