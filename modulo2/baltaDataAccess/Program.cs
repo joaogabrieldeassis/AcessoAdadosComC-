@@ -1,5 +1,5 @@
 ﻿using System;
-using BaltaDataAccess.Models;
+using BaltaDataAccess.Model;
 using Dapper;
 using Microsoft.Data.SqlClient;
 

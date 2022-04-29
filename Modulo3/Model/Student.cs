@@ -1,7 +1,7 @@
 using System;
-namespace BaltaDataAccess.Model
+namespace Modulo3.Model
 {
-    public class student
+    public class Student
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -10,5 +10,6 @@ namespace BaltaDataAccess.Model
         public string Phone { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime CreateDate { get; set; }
+        public Course Course { get; set; }
     }
 }

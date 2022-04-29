@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\AcessoAdadosComC-\\modulo3\\baltaDataAccess.csproj": {}
+    "C:\\AcessoAdadosComC-\\Modulo3\\baltaDataAccess.csproj": {}
   },
   "projects": {
-    "C:\\AcessoAdadosComC-\\modulo3\\baltaDataAccess.csproj": {
+    "C:\\AcessoAdadosComC-\\Modulo3\\baltaDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AcessoAdadosComC-\\modulo3\\baltaDataAccess.csproj",
+        "projectUniqueName": "C:\\AcessoAdadosComC-\\Modulo3\\baltaDataAccess.csproj",
         "projectName": "baltaDataAccess",
-        "projectPath": "C:\\AcessoAdadosComC-\\modulo3\\baltaDataAccess.csproj",
+        "projectPath": "C:\\AcessoAdadosComC-\\Modulo3\\baltaDataAccess.csproj",
         "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
-        "outputPath": "C:\\AcessoAdadosComC-\\modulo3\\obj\\",
+        "outputPath": "C:\\AcessoAdadosComC-\\Modulo3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

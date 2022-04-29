@@ -1,5 +1,5 @@
 using System;
-namespace BaltaDataAccses.Model
+namespace Modulo3.Model
 {
     public class Category
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace BaltaDataAccess.Models
+namespace BaltaDataAccess.Model
 {
     public class Category
     {
