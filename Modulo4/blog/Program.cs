@@ -2,6 +2,7 @@
 using Modulo4.Blog.Models;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
+using Modulo4.Blog.Repositories;
 
 namespace Modulo4.Blog // Note: actual namespace depends on the project name.
 {
@@ -10,36 +11,26 @@ namespace Modulo4.Blog // Note: actual namespace depends on the project name.
         private const string connectionString = "Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;";
         static void Main(string[] args)
         {
-
+            var connection = new SqlConnection(connectionString);
+            connection.Open();
             //ReadUsers();
             //ReadUser();
             // CreateUser();
-            UpdateUser();
+            //UpdateUser();
             //DeleteUser();
+            connection.Close();
 
         }
         //Método para buscar no banco os user
-        public static void ReadUsers()
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var users = connection.GetAll<User>();
-                foreach (var item in users)
-                {
-                    Console.WriteLine(item.Name);
-                }
-            }
 
-        }
         //Método para buscar no banco os users com o id
-        public static void ReadUser()
+        public static void ReadUser(SqlConnection connection)
         {
-            using (var connection = new SqlConnection(connectionString))
+            var receiveUserRepository = new UserRepository(connection);
+            var users = receiveUserRepository.Get();
+            foreach (var item in users)
             {
-                var user = connection.Get<User>(1);
-
-                Console.WriteLine(user.Name);
-
+                Console.WriteLine(users);
             }
 
         }
