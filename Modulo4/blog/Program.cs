@@ -23,8 +23,9 @@ namespace Modulo4.Blog // Note: actual namespace depends on the project name.
         //Método para buscar no banco os users com o id
         public static void ReadRole(SqlConnection connection)
         {
-            var receiveRoleRepository = new RoleRepository(connection);
+            var receiveRoleRepository = new Repository<User>(connection);
             var roles = receiveRoleRepository.Get();
+
             foreach (var item in roles)
             {
                 Console.WriteLine(item.Name);
