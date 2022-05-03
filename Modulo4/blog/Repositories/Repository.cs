@@ -11,5 +11,18 @@ namespace Modulo4.Blog.Repositories
             => _conection = connection;
         public IEnumerable<T> Get()
             => _conection.GetAll<T>();
+        public T Get(int id)
+        => _conection.Get<T>(id);
+        public void Create(T model)
+        => _conection.Insert<T>(model);
+
+        public void Update(T model)
+        => _conection.Update<T>(model);
+
+        public void Delete(int id)
+        {
+            var model = _conection.Get<T>(id);
+            _conection.Delete<T>(model);
+        }
     }
 }
