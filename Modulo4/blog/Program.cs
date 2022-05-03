@@ -3,6 +3,7 @@ using Modulo4.Blog.Models;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
 using Modulo4.Blog.Repositories;
+using Dapper;
 
 namespace Modulo4.Blog // Note: actual namespace depends on the project name.
 {
@@ -15,6 +16,9 @@ namespace Modulo4.Blog // Note: actual namespace depends on the project name.
             connection.Open();
             ReadUser(connection);
             ReadRole(connection);
+            ReadTag(connection);
+            InsertTag(connection);
+            DeletUser(connection);
             connection.Close();
 
         }
@@ -33,12 +37,41 @@ namespace Modulo4.Blog // Note: actual namespace depends on the project name.
         }
         public static void ReadUser(SqlConnection connection)
         {
-            var receiveUsers = new UserRepository(connection);
+            var receiveUsers = new Repository<Role>(connection);
             var users = receiveUsers.Get();
             foreach (var item in users)
             {
                 Console.WriteLine(item.Name);
             }
+
+        }
+        public static void ReadTag(SqlConnection connection)
+        {
+            var receiveTag = new Repository<Tag>(connection);
+            var receiveAnReceiveTag = receiveTag.Get();
+            foreach (var item in receiveAnReceiveTag)
+            {
+                Console.WriteLine(item.Name);
+            }
+        }
+        public static void InsertTag(SqlConnection connection)
+        {
+            var receiveTag = new Repository<Tag>(connection);
+            var update = "UPDATE [Tag] SET [Name] = @Name WHERE [Id] = @id";
+            var receiveUpdate = connection.Execute(update, new
+            {
+                id = "1",
+                name = "João arquiteto senior"
+            });
+            Console.WriteLine($"Linha inserida {receiveUpdate}");
+
+        }
+        public static void DeletUser(SqlConnection connection)
+        {
+            var receiveUser = new Repository<User>(connection);
+            var delete = "DELETE FROM [Role] WHERE [Id] = 4";
+            var receiveDelet = connection.Execute(delete);
+            Console.WriteLine($"Linha afetada {receiveDelet}");
 
         }
     }
