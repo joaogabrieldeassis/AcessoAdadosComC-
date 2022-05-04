@@ -6,23 +6,25 @@ namespace Modulo4.Blog.Repositories
 {
     public class Repository<T> where T : class
     {
-        private readonly SqlConnection _conection;
+        private readonly SqlConnection _connection;
         public Repository(SqlConnection connection)
-            => _conection = connection;
+        {
+            _connection = connection;
+        }
         public IEnumerable<T> Get()
-            => _conection.GetAll<T>();
+            => Database.Connection.GetAll<T>();
         public T Get(int id)
-        => _conection.Get<T>(id);
+        => Database.Connection.Get<T>(id);
         public void Create(T model)
-        => _conection.Insert<T>(model);
+        => Database.Connection.Insert<T>(model);
 
         public void Update(T model)
-        => _conection.Update<T>(model);
+        => Database.Connection.Update<T>(model);
 
         public void Delete(int id)
         {
-            var model = _conection.Get<T>(id);
-            _conection.Delete<T>(model);
+            var model = Database.Connection.Get<T>(id);
+            Database.Connection.Delete<T>(model);
         }
     }
 }
