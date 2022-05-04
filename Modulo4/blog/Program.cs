@@ -1,9 +1,5 @@
-﻿using System;
-using Modulo4.Blog.Models;
-using Dapper.Contrib.Extensions;
-using Microsoft.Data.SqlClient;
-using Modulo4.Blog.Repositories;
-using Dapper;
+﻿using Microsoft.Data.SqlClient;
+using Modulo4.Blog.Screens.TagScreens;
 
 namespace Modulo4.Blog // Note: actual namespace depends on the project name.
 {
@@ -12,67 +8,35 @@ namespace Modulo4.Blog // Note: actual namespace depends on the project name.
         private const string connectionString = "Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;";
         static void Main(string[] args)
         {
-            var connection = new SqlConnection(connectionString);
-            connection.Open();
-            ReadUser(connection);
-            ReadRole(connection);
-            ReadTag(connection);
-            InsertTag(connection);
-            DeletUser(connection);
-            connection.Close();
+            Database.Connection = new SqlConnection(connectionString);
+            Database.Connection.Open();
 
+            Load();
+            Console.ReadKey();
+            Database.Connection.Close();
         }
-        //Método para buscar no banco os user
-
-        //Método para buscar no banco os users com o id
-        public static void ReadRole(SqlConnection connection)
+        private static void Load()
         {
-            var receiveRoleRepository = new Repository<User>(connection);
-            var roles = receiveRoleRepository.Get();
+            Console.Clear();
+            Console.WriteLine("Meu Blog");
+            Console.WriteLine("------------------");
+            Console.WriteLine("O que deseja fazer ?");
+            Console.WriteLine();
+            Console.WriteLine(" 1 - Gestão de usuarios ");
+            Console.WriteLine(" 2 - Gestão de perfil");
+            Console.WriteLine(" 3 - Gestão de categorias ");
+            Console.WriteLine(" 4 - Gestão de tags");
 
-            foreach (var item in roles)
+
+            // O ! serve para forçar o usuario a digitar e não deixar nula 
+            var option = short.Parse(Console.ReadLine()!);
+            switch (option)
             {
-                Console.WriteLine(item.Name);
+                case 4:
+                    MenuTagScreen.Load();
+                    break;
+                default: Load(); break;
             }
-        }
-        public static void ReadUser(SqlConnection connection)
-        {
-            var receiveUsers = new Repository<Role>(connection);
-            var users = receiveUsers.Get();
-            foreach (var item in users)
-            {
-                Console.WriteLine(item.Name);
-            }
-
-        }
-        public static void ReadTag(SqlConnection connection)
-        {
-            var receiveTag = new Repository<Tag>(connection);
-            var receiveAnReceiveTag = receiveTag.Get();
-            foreach (var item in receiveAnReceiveTag)
-            {
-                Console.WriteLine(item.Name);
-            }
-        }
-        public static void InsertTag(SqlConnection connection)
-        {
-            var receiveTag = new Repository<Tag>(connection);
-            var update = "UPDATE [Tag] SET [Name] = @Name WHERE [Id] = @id";
-            var receiveUpdate = connection.Execute(update, new
-            {
-                id = "1",
-                name = "João arquiteto senior"
-            });
-            Console.WriteLine($"Linha inserida {receiveUpdate}");
-
-        }
-        public static void DeletUser(SqlConnection connection)
-        {
-            var receiveUser = new Repository<User>(connection);
-            var delete = "DELETE FROM [Role] WHERE [Id] = 4";
-            var receiveDelet = connection.Execute(delete);
-            Console.WriteLine($"Linha afetada {receiveDelet}");
-
         }
     }
 }
