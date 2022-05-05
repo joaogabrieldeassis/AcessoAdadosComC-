@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Modulo4.Blog.Screens.CategoryScreens;
 using Modulo4.Blog.Screens.TagScreens;
 
 namespace Modulo4.Blog // Note: actual namespace depends on the project name.
@@ -34,6 +35,9 @@ namespace Modulo4.Blog // Note: actual namespace depends on the project name.
             {
                 case 4:
                     MenuTagScreen.Load();
+                    break;
+                case 3:
+                    MenuCategoryScreens.Load();
                     break;
                 default: Load(); break;
             }
