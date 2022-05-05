@@ -11,6 +11,7 @@ namespace Modulo4.Blog.Screens.TagScreens
             Console.WriteLine("Lista de Tags");
             List();
             Console.ReadKey();
+            MenuTagScreen.Load();
         }
         private static void List()
         {
@@ -18,7 +19,7 @@ namespace Modulo4.Blog.Screens.TagScreens
             var tags = repository.Get();
             foreach (var item in tags)
             {
-                Console.WriteLine($"{item.Name}-{item.Id}({item.Slug})");
+                Console.WriteLine($"Id: {item.Id}\n Nome: {item.Name} Slug: ({item.Slug})");
             }
         }
     }
