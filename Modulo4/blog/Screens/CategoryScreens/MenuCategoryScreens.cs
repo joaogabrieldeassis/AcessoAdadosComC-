@@ -12,6 +12,7 @@ namespace Modulo4.Blog.Screens.CategoryScreens
             Console.WriteLine(" 2 - Listar uma categoria");
             Console.WriteLine(" 3 - Atualizar uma categoria");
             Console.WriteLine(" 4 - Deletar uma categoria");
+            Console.WriteLine(" 5 - Voltar ao Menu");
             var receiveCategory = int.Parse(Console.ReadLine()!);
             switch (receiveCategory)
             {
@@ -25,7 +26,10 @@ namespace Modulo4.Blog.Screens.CategoryScreens
                     TuUpdateCategory.Load();
                     break;
                 case 4:
-                    TuUpdateCategory.Load();
+                    DeletCategory.Load();
+                    break;
+                case 5:
+                    Program.Load();
                     break;
                 default:
                     break;
