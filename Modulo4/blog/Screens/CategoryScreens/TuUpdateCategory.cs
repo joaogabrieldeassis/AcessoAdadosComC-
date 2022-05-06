@@ -37,7 +37,7 @@ namespace Modulo4.Blog.Screens
             catch (System.Exception)
             {
 
-                Console.WriteLine("Usuario já cadastrado");
+                Console.WriteLine("Categoria já cadastrado");
                 Console.ReadKey();
                 MenuCategoryScreens.Load();
 

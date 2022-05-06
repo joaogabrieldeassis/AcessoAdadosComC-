@@ -10,14 +10,14 @@ namespace Modulo4.Blog.Screens.CategoryScreens
             Console.Clear();
             Console.WriteLine("Digite o nome da categoria: ");
             var name = Console.ReadLine();
-            Console.WriteLine("Digite o slug de Categoria: ");
+            Console.WriteLine("Digite o slug de categoria: ");
             var slug = Console.ReadLine();
             Create(new Category
             {
                 Name = name,
                 Slug = slug
             });
-            Console.WriteLine("Usuario cadastrado com sucesso");
+            Console.WriteLine("Categoria cadastrada com sucesso");
         }
         private static void Create(Category category)
         {
@@ -30,7 +30,7 @@ namespace Modulo4.Blog.Screens.CategoryScreens
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Usuario já existente");
+                Console.WriteLine("Categoria já existente");
             }
 
         }
