@@ -1,3 +1,4 @@
+using Blog.Models;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Modulo4.Blog.Models;

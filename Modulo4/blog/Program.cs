@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Modulo4.Blog.Screens.CategoryScreens;
 using Modulo4.Blog.Screens.TagScreens;
+using Modulo4.Blog.Screens.UserScreens;
 
 namespace Modulo4.Blog // Note: actual namespace depends on the project name.
 {
@@ -16,7 +17,7 @@ namespace Modulo4.Blog // Note: actual namespace depends on the project name.
             Console.ReadKey();
             Database.Connection.Close();
         }
-        private static void Load()
+        public static void Load()
         {
             Console.Clear();
             Console.WriteLine("Meu Blog");
@@ -33,6 +34,9 @@ namespace Modulo4.Blog // Note: actual namespace depends on the project name.
             var option = short.Parse(Console.ReadLine()!);
             switch (option)
             {
+                case 1:
+                    MenuUserScreen.Load();
+                    break;
                 case 4:
                     MenuTagScreen.Load();
                     break;

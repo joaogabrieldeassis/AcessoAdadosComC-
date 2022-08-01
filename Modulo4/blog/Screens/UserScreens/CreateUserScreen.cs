@@ -20,15 +20,15 @@ namespace Modulo4.Blog.Screens.UserScreens
             var image = Console.ReadLine();
             Console.WriteLine("Digite seu slug: ");
             var slug = Console.ReadLine();
-            InsertUser(new User
-            {
-                Name = name,
-                Email = email,
-                PasswordHash = password,
-                Bio = bio,
-                Image = image,
-                Slug = slug
-            });
+            // InsertUser(new User
+            // {
+            //     Name = name,
+            //     Email = email,
+            //     PasswordHash = password,
+            //     Bio = bio,
+            //     Image = image,
+            //     Slug = slug
+            // });
             Console.ReadKey();
             Console.WriteLine("Usuario cadastrado com sucesso!\nPrecione enter para sair");
             MenuUserScreen.Load();
