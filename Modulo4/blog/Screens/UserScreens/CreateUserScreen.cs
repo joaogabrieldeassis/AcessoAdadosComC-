@@ -10,7 +10,7 @@ namespace Modulo4.Blog.Screens.UserScreens
             Console.Clear();
             Console.WriteLine("Digite o seu nome: ");
             var name = Console.ReadLine();
-            Console.WriteLine("Digite o seu email: ");
+            Console.WriteLine("Digite o seu emal: ");
             var email = Console.ReadLine();
             Console.WriteLine("Digite a sua senha: ");
             var password = Console.ReadLine();
